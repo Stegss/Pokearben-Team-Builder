@@ -31,15 +31,16 @@ public class PokemonDatabase{
 
                 int id = Integer.parseInt(data[0]);
                 String name = data[1];
-                String type1 = data[2];
-                String type2 = data[3];
                 
-                int hp = Integer.parseInt(data[4]);
-                int attack = Integer.parseInt(data[5]);
-                int defense = Integer.parseInt(data[6]);
-                int specialAttack = Integer.parseInt(data[7]);
-                int specialDefense = Integer.parseInt(data[8]);
-                int speed = Integer.parseInt(data[9]);
+                int hp = Integer.parseInt(data[2]);
+                int attack = Integer.parseInt(data[3]);
+                int defense = Integer.parseInt(data[4]);
+                int specialAttack = Integer.parseInt(data[5]);
+                int specialDefense = Integer.parseInt(data[6]);
+                int speed = Integer.parseInt(data[7]);
+
+                String type1 = data.length > 36 ? data[36] : "";
+                String type2 = data.length > 37 ? data[37] : "";
 
                 Pokemon pokemon = new Pokemon(
                     id,
@@ -68,4 +69,16 @@ public class PokemonDatabase{
 
 
 } 
-}
+
+    public ArrayList<Pokemon> searchByName(String name) {
+        ArrayList<Pokemon> matches = new ArrayList<>();
+
+        for(Pokemon pokemon : pokemonList) {
+            if (pokemon.getName().toLowerCase().contains(name.toLowerCase())) {
+                matches.add(pokemon);
+            } 
+        }
+        return matches; 
+        } 
+
+    }

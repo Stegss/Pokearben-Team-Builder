@@ -1,5 +1,4 @@
 
-
 public class Pokemon {
 
     private int id;
@@ -37,6 +36,7 @@ public Pokemon(
         this.defense = defense;
         this.specialAttack = specialAttack;
         this.specialDefense = specialDefense;
+        this.speed = speed;
         
     }
 
@@ -55,7 +55,13 @@ public Pokemon(
         System.out.println("Sp. Attack: " + specialAttack);
         System.out.println("Sp. Defense: " + specialDefense);
         System.out.println("Speed: " + speed);
-        System.out.println(" ");
-    }
+        System.out.println(" "); }
 
+    public String getName() {
+        return name;
+    }
 }
+
+
+
+ 
