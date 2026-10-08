@@ -60,6 +60,9 @@ public Pokemon(
     public String getName() {
         return name;
     }
+    public int getID() {
+        return id;
+    }
 }
 
 

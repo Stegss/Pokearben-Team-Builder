@@ -81,4 +81,15 @@ public class PokemonDatabase{
         return matches; 
         } 
 
+        public ArrayList<Pokemon> searchByID(int id) {
+        ArrayList<Pokemon> matches = new ArrayList<>();
+
+        for(Pokemon pokemon : pokemonList) {
+            if (pokemon.getID() == id) {
+                matches.add(pokemon);
+            } 
+        }
+        return matches; 
+        } 
+
     }
