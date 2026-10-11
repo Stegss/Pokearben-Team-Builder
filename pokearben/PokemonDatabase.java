@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.File;
 
 public class PokemonDatabase{
 
@@ -92,4 +93,16 @@ public class PokemonDatabase{
         return matches; 
         } 
 
+        
+    public Pokemon getPokemonByID(int id) {
+
+        for (Pokemon pokemon : pokemonList) {
+
+            if (pokemon.getID() == id) {
+                return pokemon;
+        }
     }
+
+    return null;
+} 
+}

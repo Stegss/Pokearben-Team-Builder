@@ -1,56 +1,103 @@
-import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Main {
-
-    public static void main(String[] args){
+    
+    public static void main(String[] args) {
         
         Scanner scanner = new Scanner(System.in);
+
         PokemonDatabase database = new PokemonDatabase();
+        Team team = new Team();
 
-        database.loadDatabase("data/pokemon.csv");
-        
-        System.out.print("Choose how to get a pokemon. 1 for Name, 2 for ID: ");
-        int chooseOption = Integer.parseInt(scanner.nextLine());
+        database.loadDatabase("data.pokemon.csv");
 
-        ArrayList<Pokemon> results = new ArrayList<>();
-    
-        if (chooseOption == 1) {
-            System.out.print("Enter a pokemon name: ");
-            String chosenName = scanner.nextLine().toLowerCase();
-            results = database.searchByName(chosenName);
-        
-        } else if (chooseOption == 2) {
-              System.out.print("Enter a pokemon ID: ");
-              int chosenID = Integer.parseInt(scanner.nextLine());
-              results = database.searchByID(chosenID);
+        boolean buildingTeam = true;
 
-        } else {
-            System.out.print("Invalid option selected.");
-            return;
+        while (buildingTeam & team.getSize() < 6) {
+
+            System.out.println("Pokearben Team Bulder: ");
+            System.out.println("1. Search by Name");
+            System.out.println("2. Search by ID");
+            System.out.println("3. View Team");
+            System.out.println("4. Finish Building Team");
+            System.out.println("Choose an option above by typing the corresponding number");
+
+            int chooseOption = Integer.parseInt(scanner.nextLine());
+
+            if (chooseOption == 1) {
+                
+                System.out.println("Enter a Pokemon name: ");
+                String chosenName = scanner.nextLine();
+
+                ArrayList<Pokemon> results = database.searchByName(chosenName);
+
+                if (results.isEmpty()) {
+                    System.out.println("No Pokemon found.");
+                } else if (results.size() == 1) {
+
+                    Pokemon chosenPokemon = results.get(0);
+                    chosenPokemon.getInfo();
+
+                    System.out.println("Add this Pokemon to your team?");
+                    System.out.println("1. Yes");
+                    System.out.println("2. No");
+                    System.out.println("Choose an option above by typing the corresponding number");
+
+                    int addChoice = Integer.parseInt(scanner.nextLine());
+
+                    if (addChoice == 1) {
+                        team.addPokemon(chosenPokemon);
+                    }
+
+                } else {
+
+                    System.out.println("Multiple Pokemon found: ");
+                    for (Pokemon pokemon : results) {
+                        pokemon.getInfo();
+                    }
+
+                     System.out.println("Search with a more specific name.");
+                }
+            } else if (chooseOption == 2) {
+
+                System.out.println("Enter a Pokemon ID: ");
+                int chosenID = Integer.parseInt(scanner.nextLine());
+
+                Pokemon chosenPokemon = database.getPokemonByID(chosenID);
+
+                if (chosenPokemon != null) {
+
+                    chosenPokemon.getInfo();
+
+                    System.out.println("Add this Pokemon to your team?");
+                    System.out.println("1. Yes");
+                    System.out.println("2. No");
+                    System.out.println("Choose an option above by typing the corresponding number");
+
+                    int addChoice = Integer.parseInt(scanner.nextLine());
+
+                    if (addChoice == 1) {
+                        team.addPokemon(chosenPokemon);
+                    }
+                } else {
+
+                    System.out.println("No Pokemon found with that ID.");
+                }
+           } else if (chooseOption == 3) {
+
+            team.displayTeam();
+           } else if (chooseOption == 4) {
+
+            buildingTeam = false;
+           } else {
+
+            System.out.println("Invalid option selected.");
+           }
         }
-        results.getInfo();
-        
-        // 1 (Search by Name) or 2 (Search by ID)
-        // Shows Pokemon Stats
-        // Add this pokemon to team? [Y/N]
-        // Prompted to add another (1) or to edit team (2)
-        // Add another goes back up to the top, edit team allows you to choose who
-        // Once you choose, you can edit EVs, IVs, etc.
-        // Allow them to exit whenever.
-        // Rinse and repeat until the team is full with 6 party members.
-        // Also, always allow them to save the team.
+            System.out.println("Final Team: ");
+            team.displayTeam();
+            scanner.close();
+    }
 
-        
-
-        // Add a new team member? [tba]
-        
-        // Edit Options:
-        // Change nature? natures.(put nature here)
-        // Change EVs? evTrain.(amount)(stat)
-        // Change IVs? changeIV (tba)
-        }
-}
-
-
-
+} 
