@@ -18,21 +18,44 @@ public class Team {
 
         if (team.isEmpty()) {
             System.out.println("Your team is currently empty.");
-        } else {
-            for (int i = 0;
-                i < team.size();
-                i++) {
-                    System.out.println((i + 1) + "." + team.get(i).getName());
-                }
+        } 
+
+        for (int i = 0; i < 6; i++) {
+
+            System.out.println("\n--- Slot " + (i + 1) + " ---");
+
+            if (i < team.size()) {
+
+                Pokemon pokemon = team.get(i);
+                pokemon.getInfo();
+            } else {
+
+                System.out.println("Empty Slot");
+            }
         }
     }
 
-    AAA
+    public void removePokemon(int position) {
 
+        if (position >= 1 && position <= team.size()) {
 
+            Pokemon removedPokemon = team.remove(position - 1);
+
+            System.out.println(removedPokemon.getName() + "was removed from your team.");
+        } else {
+            System.out.println("That is an invalid team position.");
+        }
+    }
 
     public int getSize() {
         return team.size();
+    }
+
+    public Pokemon getPokemon(int position) {
+        if (position >= 1 && position <= team.size()) {
+            return team.get(position - 1);
+        }
+        return null;
     }
     
 
