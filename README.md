@@ -42,7 +42,7 @@ Before installing the project, make sure you have the following installed:
 
 ## 🎮 Application
 
-Pokemon Showdown primarily supports the main series Pokémon games, which feature the traditional turn-based combat system.
+Pokearben Team Builder primarily supports the main series Pokémon games, which feature the traditional turn-based combat system.
 Here is the clean, comprehensive list of all main series games that use this turn-based combat engine, grouped by generation:
 
 **Generation I (Kanto)**
