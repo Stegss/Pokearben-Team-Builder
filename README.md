@@ -41,3 +41,72 @@ Before installing the project, make sure you have the following installed:
   
   The customization gives you many options for building a Pokemon, plus a 'go back to main menu' that sets customizing to false and sends you back to the team building. IVs and EVs are fairly simple: The user chooses a stat and integer with the scanner, and then the setIV/setEV method is called for the chosen Pokemon, using the input to change the stats. The nature, ability and held item is easy, it just reads input as a string. Finally, the move slot first asks you which move you want to change, then grabs the user's input as a String to input into a method that changes or sets the move. displayBuild simply displays the variables of your Pokemon.
 
+## 🎮 Application
+
+Pokemon Showdown primarily supports the main series Pokémon games, which feature the traditional turn-based combat system.
+Here is the clean, comprehensive list of all main series games that use this turn-based combat engine, grouped by generation:
+
+**Generation I (Kanto)**
+
+• Pokémon Red
+• Pokémon Blue
+• Pokémon Yellow
+
+**Generation II (Johto)**
+
+• Pokémon Gold
+• Pokémon Silver
+• Pokémon Crystal
+
+**Generation III (Hoenn & Kanto)**
+
+• Pokémon Ruby
+• Pokémon Sapphire
+• Pokémon FireRed
+• Pokémon LeafGreen
+• Pokémon Emerald
+
+**Generation IV (Sinnoh & Johto)**
+
+• Pokémon Diamond
+• Pokémon Pearl
+• Pokémon Platinum
+• Pokémon HeartGold
+• Pokémon SoulSilver
+
+**Generation V (Unova)**
+
+• Pokémon Black
+• Pokémon White
+• Pokémon Black 2
+• Pokémon White 2
+
+**Generation VI (Kalos & Hoenn)**
+
+• Pokémon X
+• Pokémon Y
+• Pokémon Omega Ruby
+• Pokémon Alpha Sapphire
+
+**Generation VII (Alola & Kanto)**
+
+• Pokémon Sun
+• Pokémon Moon
+• Pokémon Ultra Sun
+• Pokémon Ultra Moon
+• Pokémon: Let's Go, Pikachu!
+• Pokémon: Let's Go, Eevee!
+
+**Generation VIII (Galar, Sinnoh & Hisui)**
+
+• Pokémon Sword
+• Pokémon Shield
+• Pokémon Brilliant Diamond
+• Pokémon Shining Pearl
+• Pokémon Legends: Arceus
+
+**Generation IX (Paldea & Kitakami/Unova)**
+
+• Pokémon Scarlet
+• Pokémon Violet
+
