@@ -26,8 +26,7 @@ The following are quick and easy to change to get down into the nitty gritty of 
 
 Before installing the project, make sure you have the following installed:
 
-- **Github Codespaces**
-- **Java** 
+- **A Java Virtual Machine (JVM)**
 
 ## ⌨️ Code Explanation
 
